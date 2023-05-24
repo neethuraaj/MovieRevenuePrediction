@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="/static/Features.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Revenue Predictor</title>
+    <link rel="stylesheet" href="/static/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+       
+</head>
+<body>
+<!-- Links (sit on top) -->
+<div class="w3-top">
+  <div class="w3-row w3-large w3-light-grey">
+    <div class="w3-col s3">
+      <a href="#" class="w3-button w3-block">Home</a>
+    </div>
+    <div class="w3-col s3">
+      <a href= {{ url_for('dashboard') }} class="w3-button w3-block">Dashboard</a>
+    </div>
+    <div class="w3-col s3">
+      <a href="#about" class="w3-button w3-block">About</a>
+    </div>
+   
+  </div>
+</div>
+
+<!-- Content -->
+<div class="w3-content" style="max-width:1100px;margin-top:80px;margin-bottom:80px">
+
+  <div class="w3-panel">
+    <h1><b>PREDICTOR</b></h1>
+    <p>A movie revenue prediction tool</p>
+  </div>
+
+  <!-- Slideshow -->
+  <div class="w3-container">
+    <div class="w3-display-container" >
+      <img src="/static/images/movie1.jpg" style="width:100%">
+      <div class="w3-display-topleft w3-container w3-padding-32 w3-text-sand">
+        <h3>Know Your Movie Revenue</h3>
+         <div class="w3-panel w3-padding-16 w3-section">
+    		<form id="prediction-form" style="margin-bottom:20px"  action="/predict" method="POST">
+    			
+     			<label for="genres">Genre:</label>
+     			<select name="genres" id="genre" required> 
+         			{% for genre in genres %}
+                        <option value="{{ genre }}">{{ genre }}</option>
+                    {% endfor %}
+
+     			 </select>
+    			
+    			<br><br><label for="production_companies">Production Company:</label>
+                <select name="production_companies" required>
+                    {% for company in production_companies %}
+                        <option value="{{ company }}">{{ company }}</option>
+                    {% endfor %}
+                </select>
+    			
+    			<br><br><label for="budget">Budget:</label>
+    			<input type="text" name="Budget" required>    
+   			
+    			<br><br><label for="runtime">Duration of the movie (in minutes):</label>
+    			<input type="number" name="Runtime" required>
+       			
+   
+    			<br><br><label>Release Date:</label>
+  
+    			
+      			<select name="Month" required>
+				<option value="01">January</option>
+ 				<option value="02">February</option>
+ 				<option value="03">March</option>
+  				<option value="04">April</option>
+  				<option value="05">May</option>
+  				<option value="06">June</option>
+  				<option value="07">July</option>
+  				<option value="08">August</option>
+  				<option value="09">September</option>
+  				<option value="10">October</option>
+  				<option value="11">November</option>
+  				<option value="12">December</option>
+      			</select>
+  
+            <select name="Year" id="year" required></select>
+    			
+    			<select name="Day" required>
+				<option value="01">Sunday</option>
+  				<option value="02">Monday</option>
+  				<option value="03">Tuesday</option>
+  				<option value="04">Wednesday</option>
+  				<option value="05">Thursday</option>
+  				<option value="06">Friday</option>
+  				<option value="07">Saturday</option>
+      			</select>
+    			<br>
+    
+		<br><br><br><input type="submit", value="Predict Revenue"><br><br>
+         
+    		
+ 		</form>
+      	 </div>
+      </div>
+      
+    </div>
+   
+   
+  <!-- Grid -->
+  <div class="w3-row w3-container">
+    <div class="w3-center w3-padding-64" id="about">
+      <span class="w3-xlarge w3-bottombar w3-border-dark-grey w3-padding-16">What We Offer</span>
+    </div>
+    <div class="w3-third w3-margin-bottom" style="width:100%;">
+  	 <div class="w3-card-4" >
+   		 <div class="w3-container" >
+      		<h3>Prediction</h3>
+      		<p>If you are planning to make a movie, use this tool to know how much revenue you can make from your movie by simply entering a couple of details like genre of the movie, expected budget,expected date of release, Production Company etc.</p>  
+		 </div>
+      </div>
+     </div>
+    
+  
+
+  <!-- Grid -->
+  <div class="w3-row-padding" id="contact">
+    <div class="w3-center w3-padding-64">
+      <span class="w3-xlarge w3-bottombar w3-border-dark-grey w3-padding-16">Who We Are</span>
+    </div>
+
+    <div class="w3-third w3-margin-bottom" style="width:100%;">
+      <div class="w3-card-4" >
+        
+        <div class="w3-container" >
+          <h3>ICT Accademy Kerala</h3>
+          <p class="w3-opacity">DataScience & Analytics (B1)</p>
+          <p> Adithya Raveendran,Ardra KY,Fazila PK,Neethu Raj,Shan Santosh,Vineetha Binoy</p>
+
+         </div>
+      </div>
+    </div>
+
+    
+
+   
+  </div>
+
+ <script>
+// Slideshow
+var slideIndex = 1;
+showDivs(slideIndex);
+
+function plusDivs(n) {
+  showDivs(slideIndex += n);
+}
+
+function currentDiv(n) {
+  showDivs(slideIndex = n);
+}
+
+function showDivs(n) {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("demodots");
+  if (n > x.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = x.length} ;
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";  
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" w3-white", "");
+  }
+  x[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " w3-white";
+}
+
+// Populate the year options
+document.addEventListener("DOMContentLoaded", function() {
+  var currentYear = new Date().getFullYear();
+  var yearSelect = document.getElementById("year");
+
+  for (var year = 2023; year <= 2050; year++) {
+    var option = document.createElement("option");
+    option.value = year;
+    option.text = year;
+    yearSelect.appendChild(option);
+  }
+});
+
+</script>
+
+
+
+
+</body>
+</html>

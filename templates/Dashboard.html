@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Dashboard on Movie Trends</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="/static/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+html,body,h1,h2,h3,h4 {font-family:"Lato", sans-serif,font-weight: bold;}
+.mySlides {display:none}
+.w3-tag, .fa {cursor:pointer}
+.w3-tag {height:15px;width:15px;padding:0;margin-top:6px}
+
+ h3 {
+      color: darkblue;
+      font-weight: bold;
+    }
+</style>
+</head>
+<body>
+
+<!-- Links (sit on top) -->
+<div class="w3-top">
+  <div class="w3-row w3-large w3-light-grey">
+    <div class="w3-col s3">
+      <a href={{ url_for('home') }} class="w3-button w3-block">Home</a>
+    </div>
+    
+  </div>
+</div>
+
+<!-- Content -->
+<div class="w3-content" style="max-width:1100px;margin-top:80px;margin-bottom:80px">
+
+  <div class="w3-panel">
+    <h1><b>Know the Trends in the industry</b></h1>
+    <p> For the movies released post 2000</p>
+  </div>      
+
+  <!-- Grid -->
+  <div class="w3-row-padding" >
+    <div class="w3-center  w3-padding-64">
+      <span class="w3-xlarge  w3-bottombar w3-border-dark-grey w3-padding-16">Cost Analysis</span>
+    </div>
+
+    <div >
+     <div class="w3-card-4">
+         <h3>High Budget Movies </h3>
+        <img src="/static/images/Movie_Budgets1.jpg"  style="width:80%">
+        <h3 foncolor='darkblue'>High Revenue generated Movies </h3>
+        <img src="/static/images/Movie_Revenue.png"  style="width:80%">
+        <br><h3> Budget ,Revenue and Profit</h3>
+        <img src="/static/images/3d.jpg"  style="width:80%">
+      </div> 
+    </div>
+
+    
+      
+    
+  </div>
+
+<div class="w3-row-padding" >
+  <div class="w3-center w3-padding-64 ">
+    <span class="w3-xlarge  w3-bottombar w3-border-dark-grey w3-padding-16">Seaonality Analysis</span>
+  </div>
+
+  <div >
+   <div class="w3-card-4">
+       <h3>Profit earned by the movies over the years </h3>
+       <br><img src="/static/images/Movies_Yearly_Profit.png" a style="width:100%">
+       <br> <br><h3 foncolor='darkblue'>Most Movies Released </h3>
+      <img src="/static/images/Year_Month_count_movies.png"  style="width:80%">
+       <br> <br><h3> Most Profit Earned Months</h3>
+      <img src="/static/images/profit_month.png"  style="width:80%">
+    </div> 
+  </div>
+
+  
+
+<div class="w3-row-padding" >
+    <div class="w3-center w3-padding-64">
+      <span class="w3-xlarge  w3-bottombar w3-border-dark-grey w3-padding-16">Impact Of Duration Of The Movie On ROI:</span>
+    </div>
+    
+    <div class="w3-card-4">
+        <h3>Impact Of Movie Runtime  </h3>
+        <img src="/static/images/ROI Vs Runtime.png" style="width:80%">
+       
+       <img src="/static/images/ROI Vs Runtime- detailed.png" a style="width:80%">  style="width:80%">
+
+     </div> 
+ </div>
+ 
+ 
+<div class="w3-row-padding" >
+    <div class="w3-center w3-padding-64">
+      <span class="w3-xlarge  w3-bottombar w3-border-dark-grey w3-padding-16">Genre And Its Impact</span>
+    </div>
+     <div class="w3-card-4">
+         <h3>Most Produced Movie Genres  </h3>
+         <br><br>   <img src="/static/images/genre_Movies.png" style="width:80%">
+          <br><br><h3>Most Profitable Movie Genres  </h3>
+        <br><br><img src="/static/images/genre_profit.png" a style="width:80%">  style="width:80%">
+
+      </div> 
+  </div>
+ </div>
+
+<div class="w3-row-padding" >
+    <div class="w3-center w3-padding-64">
+      <span class="w3-xlarge  w3-bottombar w3-border-dark-grey w3-padding-16">Production Companies</span>
+    </div>
+    
+     <div class="w3-card-4">
+         <h3>Most Produced Movie Houses  </h3>
+         <br><br><img src="/static/images/Prod_No_Of_Movies.png" style="width:80%">
+         <br><br> <h3>Production Companies With Most Profitable Movies  </h3>
+       <br><br> <img src="/static/images/genre_profit.png" a style="width:80%">  style="width:80%">
+
+      </div> 
+ </div>
+
+</body>
+</html>
